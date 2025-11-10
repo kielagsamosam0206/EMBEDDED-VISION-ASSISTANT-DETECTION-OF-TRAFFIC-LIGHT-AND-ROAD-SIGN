@@ -1,4 +1,4 @@
-# Embedded Vision Assistant for Color-Blind Drivers (Raspberry Pi 5 + Windows)
+# Embedded Vision Assistant for Color-Blind Drivers
 
 Real-time **traffic-light** (Red/Yellow/Green) and **road-sign** detection with clear **on-screen banners** and **voice prompts** (English/Tagalog) to assist drivers with Color Vision Deficiency (CVD).
 
