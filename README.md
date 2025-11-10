@@ -56,4 +56,7 @@ Built with **YOLOv8**, **OpenCV**, and a **Tkinter** GUI. Runs on **Raspberry Pi
 ## System Architecture
 High-level flow:
 
+<img width="2431" height="1179" alt="architecture" src="https://github.com/user-attachments/assets/37fdcbe3-3155-43ae-bc59-89b3cb57c95b" />
+
+
 
