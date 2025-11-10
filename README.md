@@ -1,35 +1,59 @@
-# Embedded Vision Assistant for Color-Blind Drivers
-An embedded real-time traffic light and road sign recognition system designed to assist Color Vision Deficient (CVD) drivers. The system provides **visual** and **auditory feedback** to help recognize traffic light states and selected road signs while driving.
+# Embedded Vision Assistant for Color-Blind Drivers (Raspberry Pi 5 + Windows)
 
-This project uses **YOLOv8 object detection**, **Raspberry Pi 5**, and a **Tkinter-based GUI** to display live camera feed overlays and announce detected traffic signals in either **English or Tagalog**.
+Real-time **traffic-light** (Red/Yellow/Green) and **road-sign** detection with clear **on-screen banners** and **voice prompts** (English/Tagalog) to assist drivers with Color Vision Deficiency (CVD).
 
----
-
-## 🔍 Features
-- Real-time detection of:
-  - Traffic Light States (Red, Yellow, Green)
-  - Road Signs such as:
-    - No Parking
-    - No Entry
-    - Stop
-    - Yield
-    - Pedestrian Crossing
-- On-screen banner and bounding box visual feedback
-- Voice feedback (English / Tagalog)
-- Adjustable detection thresholds and stability frames
-- Supports both camera feed and video file sources
-- Prioritized detection (traffic lights > road signs)
-- Cooldown and announcement limit logic to prevent repeated prompts
+Built with **YOLOv8**, **OpenCV**, and a **Tkinter** GUI. Runs on **Raspberry Pi 5** and Windows laptops/desktops.
 
 ---
 
-## 🛠 Hardware Used
-| Component | Description |
-|---------|-------------|
-| Raspberry Pi 5 | Main processing unit |
-| ELP USB Camera | Real-time video capture |
-| 7-inch HDMI LCD Display | Visual feedback output |
-| Mini USB Speaker (Adafruit) | Audio feedback output |
-| UPS HAT E with 21700 Batteries | Stable and portable power supply |
+## Table of Contents
+- [Features](#features)
+- [System Architecture](#system-architecture)
+- [Hardware](#hardware)
+- [Repository Structure](#repository-structure)
+- [Installation](#installation)
+  - [Windows](#windows)
+  - [Raspberry-Pi-5](#raspberry-pi-5)
+- [Model Weights](#model-weights)
+- [Configuration](#configuration)
+- [Running the App](#running-the-app)
+- [Autostart on Raspberry Pi (systemd)](#autostart-on-raspberry-pi-systemd)
+- [Troubleshooting](#troubleshooting)
+- [Dataset & Training (YOLOv8)](#dataset--training-yolov8)
+- [Evaluation & User Studies](#evaluation--user-studies)
+- [Roadmap](#roadmap)
+- [Ethics, Safety, and Privacy](#ethics-safety-and-privacy)
+- [Cite this Project](#cite-this-project)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 ---
+
+## Features
+- **Detections**
+  - Traffic lights: **red**, **yellow**, **green**
+  - Road signs: **no parking**, **no entry**, **no U-turn**, **stop**, **yield**, **pedestrian crossing**
+- **Smart feedback logic**
+  - Per-class **confidence thresholds**
+  - Per-class **stability frames** (consecutive-frame requirement)
+  - Per-class **cooldowns** and **max announcements**
+  - **Priority rules** (traffic lights before road signs)
+- **UI**
+  - Live video preview, bounding boxes, banner text
+  - Recent Detections panel
+  - Language toggle (EN/TL)
+- **Voice**
+  - **eSpeak-NG** (AI TTS) or **MP3 prompts** (human voice)
+- **Sources**
+  - USB camera / built-in webcam
+  - Video files for demos and testing
+- **Cross-platform**
+  - Windows (Python 3.10–3.12)
+  - Raspberry Pi 5 (64-bit OS)
+
+---
+
+## System Architecture
+High-level flow:
+
+
